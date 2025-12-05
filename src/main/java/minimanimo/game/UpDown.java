@@ -22,7 +22,7 @@ public class UpDown implements MiniGame {
 
         while (attempts < maxAttempts) {
             System.out.println("Attempt: " + (attempts + 1) + ". Enter your guess: "); // Prompt user for input
-            String input = scanner.next().trim();
+            String input = scanner.nextLine().trim();
             if (input.equals("0")) {
                 System.out.println("Game cancelled by user.");
                 return 0;
