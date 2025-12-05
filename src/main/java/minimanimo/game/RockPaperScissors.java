@@ -29,7 +29,7 @@ public class RockPaperScissors implements MiniGame {
             System.out.println("\n------------------------------");
             System.out.println("Current Score: " + currentScore);
             System.out.println("What is your move?");
-            System.out.print("1.Rock  2.Paper  3.Scissors : ");
+            System.out.print("1. Rock  2. Paper  3. Scissors (0. Quit RPS) : ");
 
             int userChoice;
             
@@ -38,8 +38,17 @@ public class RockPaperScissors implements MiniGame {
                 // This prevents "Invalid input" errors in the main menu after the game ends.
                 String input = scanner.nextLine().trim(); 
                 
+                // Quit if input is 0
+                if (input.equals("0")) {
+                    System.out.println("\n Game stopped by user.");
+                    System.out.println("=== Game Over! Final Score: " + currentScore + " ===");
+    
+                    return currentScore; 
+                }
+
                 // Handle empty input (just Enter)
                 if (input.isEmpty()) {
+                    System.out.println("You only typed enter. Please choose 1, 2, or 3.");
                     continue;
                 }
 
@@ -72,7 +81,7 @@ public class RockPaperScissors implements MiniGame {
             }
         }
 
-        System.out.println("=== Game Over! Final Score: " + currentScore + " ===");
+        System.out.println("\n=== Game Over! Final Score: " + currentScore + " ===");
 
         return currentScore;
     }
@@ -90,7 +99,9 @@ public class RockPaperScissors implements MiniGame {
 
     // Helper method to display choices
     private void printChoices(int user, int computer) {
+        System.out.println("---------------------------------------------------------------------------");
         System.out.println("Me: " + choiceToString(user) + " VS Computer: " + choiceToString(computer));
+        System.out.println("---------------------------------------------------------------------------");
     }
 
     private String choiceToString(int choice) {
