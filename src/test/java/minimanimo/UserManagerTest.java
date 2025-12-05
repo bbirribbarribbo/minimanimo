@@ -17,6 +17,7 @@ class UserManagerTest {
 
     @BeforeEach
     void setUp() throws IOException { // Ensure clean state before each test
+
         Files.deleteIfExists(Path.of(CSV_FILE));
         userManager = new UserManager(CSV_FILE);
     }
@@ -41,7 +42,7 @@ class UserManagerTest {
     void testDataPersistence() { // Test data persistence across UserManager instances
         userManager.addUser("PersistenceUser");
 
-        UserManager newManager = new UserManager();
+        UserManager newManager = new UserManager("test_users.csv");
         User loadedUser = newManager.getUser("PersistenceUser");
 
         assertNotNull(loadedUser);
@@ -51,11 +52,22 @@ class UserManagerTest {
     @Test
     void testDuplicateUserCheck() { // Test handling of duplicate user addition
         String nickname = "DoubleUser";
+        int initialScore = 50;
         userManager.addUser(nickname);
-
+        User firstInstance = userManager.getUser(nickname);
+        assertNotNull(firstInstance);
+        firstInstance.updateScore("RPS", initialScore);
+        userManager.saveUsers();
+        assertEquals(1, userManager.getUserCount());
         userManager.addUser(nickname);
+        userManager.saveUsers();
+        UserManager anotherManager = new UserManager(CSV_FILE);
+        User secondInstance = anotherManager.getUser(nickname);
+        assertNotNull(secondInstance);
+        assertEquals(nickname, secondInstance.getNickname());
+        assertEquals(1, anotherManager.getUserCount());
+        assertEquals(initialScore, secondInstance.getScore("RPS"));
 
-        assertNotNull(userManager.getUser(nickname));
     }
 
     @Test
@@ -69,12 +81,32 @@ class UserManagerTest {
 
     @Test
     void testCsvFormatIntegrity() { // Test CSV format integrity after saving users
-        userManager.addUser("CsvCheck");
-        User user = userManager.getUser("CsvCheck");
-        user.updateScore("ChamChamCham", 10);
+        String nickName = "CsvCheckUser";
+        String gameName = "ChamChamCham";
+        int score = 10;
+
+        userManager.addUser(nickName);
+        User user = userManager.getUser(nickName);
+        assertNotNull(user);
+
+        user.updateScore(gameName, score);
         userManager.saveUsers();
 
         File file = new File(CSV_FILE);
         assertTrue(file.exists());
+
+        UserManager newManager = new UserManager(CSV_FILE);
+        User loadedUser = newManager.getUser(nickName);
+        assertNotNull(loadedUser);
+        assertEquals(nickName, loadedUser.getNickname());
+        assertEquals(score, loadedUser.getScore(gameName));
+
+        try {
+            long lineCount = Files.lines(Path.of(CSV_FILE)).count();
+            assertEquals(2, lineCount);
+        } catch (IOException e) {
+            fail("IOException occurred while reading the CSV file.");
+        }
     }
+
 }

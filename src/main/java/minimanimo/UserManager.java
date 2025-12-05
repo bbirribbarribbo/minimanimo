@@ -104,4 +104,8 @@ public class UserManager {
         }
         return null;
     }
+
+    public int getUserCount() { // Get total user count
+        return users.size();
+    }
 }
