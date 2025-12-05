@@ -107,8 +107,6 @@ public class GameLauncher {
                 userManager.showTop5(gameName); 
             }
         }
-        
-        scanner.close();
     }
 
     // --- Helper Methods ---
