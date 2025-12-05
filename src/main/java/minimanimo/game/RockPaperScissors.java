@@ -35,7 +35,6 @@ public class RockPaperScissors implements MiniGame {
             
             // Check for non-numeric input and range 1-3
             try {
-                // [FIX] Changed next() to nextLine() to consume the newline character completely.
                 // This prevents "Invalid input" errors in the main menu after the game ends.
                 String input = scanner.nextLine().trim(); 
                 
