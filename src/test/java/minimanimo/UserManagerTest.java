@@ -109,9 +109,8 @@ class UserManagerTest {
         }
     }
 
-    @Test
+    @Test // Visual test for ranking display
     void testShowTop5Ranking() {
-        // 랭킹 출력 기능 테스트 (에러 없이 실행되는지 확인)
         userManager.addUser("PlayerA");
         userManager.getUser("PlayerA").getScoreMap().put("RPS", 100);
 
