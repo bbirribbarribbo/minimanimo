@@ -33,6 +33,7 @@ public class GameLauncher {
             System.out.println("Enter 1 or 2: ");
             System.out.println("1. Login (Existing User)");
             System.out.println("2. Register (New User)");
+            System.out.println("0. Exit");
             System.out.print(">> ");
 
             String choice = scanner.nextLine().trim();
@@ -44,6 +45,9 @@ public class GameLauncher {
                 case "2":
                     register();
                     break;
+                case "0": 
+                    System.out.println("Exiting application. Goodbye!");
+                    return; // ends program
                 default:
                     System.out.println("Invalid input. Please select 1 or 2.");
             }
@@ -140,16 +144,22 @@ public class GameLauncher {
     private static void register() {
         while (true) {
             System.out.println("----------------------------------------------------");
-            System.out.println("No spaces or special characters are allowed");
-            System.out.println("Nick name should be letters or with numbers only");
+            System.out.println("No spaces or special characters are allowed.");
+            System.out.println("Nick name should be letters or with numbers only.");
             System.out.println("----------------------------------------------------");
             System.out.println("Valid NickName Example 1: soyeon (o)");
             System.out.println("Valid NickName Example2 : soyeon33 (o)");
             System.out.println("Valid NickName Example3 : 33 (o)");
             System.out.println("Invalid NickName Example 1: soyeon! (x)");
             System.out.println("Invalid NickName Example 2: so yeon (x)");
-            System.out.print("Enter New Nickname: ");
+            System.out.print("Enter New Nickname OR enter 'q' to cancel: ");
             String nickname = scanner.nextLine().trim();
+            
+            // Check for cancellation command
+            if (nickname.equalsIgnoreCase("q")) {
+                System.out.println("Registration cancelled. Returning to main menu.");
+                return; 
+            }
 
             // Validation 1: Empty Check
             if (nickname.isEmpty()) {
