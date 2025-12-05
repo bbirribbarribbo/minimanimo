@@ -6,12 +6,13 @@ import java.util.Scanner;
 
 public class GameLauncher {
 
-    // Scanner must be static to prevent closing System.in
-    private static final Scanner scanner = new Scanner(System.in);
+   
+    private static Scanner scanner; // for GameLaungherTest,java's test
     private static UserManager userManager;
     private static User currentUser;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in); // for GameLaungherTest,java's test
         // 1. Initialization
         userManager = new UserManager(); // Loads users.csv automatically
         System.out.println("========== MINIMANIMO GAME PLATFORM ==========");
