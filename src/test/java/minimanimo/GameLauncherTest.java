@@ -14,7 +14,7 @@ class GameLauncherTest {
 
     private final String REAL_DATA_FILE = "users.csv";
     private final String BACKUP_DATA_FILE = "users_backup_for_test.csv";
-    
+
     // Stream to capture console output
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     private final PrintStream standardOut = System.out;
@@ -63,18 +63,19 @@ class GameLauncherTest {
         // 2. Enter nickname 'Tester01'
         // 3. Login successful -> Select '4' (Up Down Game) from main menu
         // 4. Game runs -> Select '0' (Exit) from main menu
-        String scenario = "2\nTester01\n4\n0\n";
+        String scenario = "2\nTester01\n4\n0\n0\n";
         provideInput(scenario);
 
         // Execute GameLauncher
-        GameLauncher.main(new String[]{});
+        GameLauncher.main(new String[] {});
 
         // Verify results (Check the string printed to the console)
         String output = outputStreamCaptor.toString();
 
         assertTrue(output.contains("Registration successful"), "Registration success message should appear.");
         assertTrue(output.contains("Welcome, Tester01"), "Welcome message should include the nickname.");
-        assertTrue(output.contains("Number Up Down game"), "Up Down game should be executed."); // Check UpDown class output
+        assertTrue(output.contains("Welcome to UpDown"), "Up Down game should be executed."); // Check UpDown class
+                                                                                              // output
         assertTrue(output.contains("Goodbye"), "Application should exit normally.");
     }
 
@@ -89,12 +90,14 @@ class GameLauncherTest {
         String scenario = "1\nGhostUser\n2\nRealUser\n0\n";
         provideInput(scenario);
 
-        GameLauncher.main(new String[]{});
+        GameLauncher.main(new String[] {});
 
         String output = outputStreamCaptor.toString();
 
-        assertTrue(output.contains("User not found"), "Error message should appear when logging in with a non-existent user.");
-        assertTrue(output.contains("Login Successful") || output.contains("Registration successful"), "Login should succeed after retry/registration.");
+        assertTrue(output.contains("User not found"),
+                "Error message should appear when logging in with a non-existent user.");
+        assertTrue(output.contains("Login Successful") || output.contains("Registration successful"),
+                "Login should succeed after retry/registration.");
     }
 
     @Test
@@ -107,22 +110,22 @@ class GameLauncherTest {
         String scenario = "abc\n2\nValidUser\n99\n0\n";
         provideInput(scenario);
 
-        GameLauncher.main(new String[]{});
+        GameLauncher.main(new String[] {});
 
         String output = outputStreamCaptor.toString();
 
         assertTrue(output.contains("Invalid"), "Warning message should appear for invalid input.");
         assertTrue(output.contains("Please select a game"), "Menu should reappear after invalid input.");
     }
-    
+
     @Test
     void testDataSaveCheck() {
         // Scenario: Register and exit immediately to check if file is created
         String scenario = "2\nSaveTester\n0\n";
         provideInput(scenario);
-        
-        GameLauncher.main(new String[]{});
-        
+
+        GameLauncher.main(new String[] {});
+
         // Verify if users.csv is actually created during the test
         File file = new File(REAL_DATA_FILE);
         assertTrue(file.exists(), "users.csv file should be created after execution.");
