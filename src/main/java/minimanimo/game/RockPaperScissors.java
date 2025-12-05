@@ -21,13 +21,13 @@ public class RockPaperScissors implements MiniGame {
     @Override
     public int startGame(User user, Scanner scanner) {
         System.out.println("=== Starting Rock Paper Scissors (RPS)! ===");
-        System.out.println("Rules: Win (+1 point), Draw (Replay), Lose (Game Over)!");
+        System.out.println("Rules: Win (+3 points), Draw Win (+1 point), Lose (Game Over)!");
 
         int currentScore = 0;
         
         while (true) {
             System.out.println("\n------------------------------");
-            System.out.println("Current Streak: " + currentScore);
+            System.out.println("Current Score: " + currentScore);
             System.out.println("What is your move?");
             System.out.print("1.Rock  2.Paper  3.Scissors : ");
 
@@ -61,10 +61,11 @@ public class RockPaperScissors implements MiniGame {
 
             // [Game Logic] Determine Winner
             if (userChoice == computerChoice) {
-                System.out.println("It's a draw! (Replay round)");
+                System.out.println("It's a draw! (+1 point)");
+                currentScore++; //Draw: +1 point
             } else if (isWin(userChoice, computerChoice)) {
-                System.out.println("You won! (+1 point)");
-                currentScore++;
+                System.out.println("You won! (+3 point)");
+                currentScore +=3; //Win: +3 points
             } else {
                 System.out.println("You lost... Game Over!");
                 break;
