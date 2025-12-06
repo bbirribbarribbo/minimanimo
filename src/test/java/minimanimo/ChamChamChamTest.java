@@ -28,8 +28,8 @@ public class ChamChamChamTest {
 
         // Scenario: 
         // 1. User picks 'L' (Left).
-        // 2. User picks 'Q' to quit.
-        String input = "L\nQ"; 
+        // 2. User picks '0' to quit.
+        String input = "L\n0"; 
         Scanner scanner = createScanner(input);
 
         int score = game.startGame(user, scanner);
@@ -48,8 +48,8 @@ public class ChamChamChamTest {
 
         // Scenario: 
         // 1. User inputs lowercase 'r' (Should be treated as 'R').
-        // 2. User inputs 'q' to quit.
-        String input = "r\nq"; 
+        // 2. User inputs '0' to quit.
+        String input = "r\n0"; 
         Scanner scanner = createScanner(input);
 
         int score = game.startGame(user, scanner);
@@ -71,8 +71,8 @@ public class ChamChamChamTest {
         // Round 1: 'L'
         // Round 2: 'C'
         // Round 3: 'R'
-        // Quit: 'Q'
-        String input = "L\nC\nR\nQ";
+        // Quit: '0'
+        String input = "L\nC\nR\n0";
         Scanner scanner = createScanner(input);
 
         int score = game.startGame(user, scanner);
@@ -96,8 +96,8 @@ public class ChamChamChamTest {
         // 2. "123" (Invalid) -> Game should print error and wait.
         // 3. " " (Space/Empty) -> Treated as invalid by scanner logic or skipped.
         // 4. "L" (Valid) -> Finally selects Left.
-        // 5. "Q" (Quit)
-        String input = "X\n123\nL\nQ";
+        // 5. "0" (Quit)
+        String input = "X\n123\nL\n0";
         Scanner scanner = createScanner(input);
 
         int score = game.startGame(user, scanner);
@@ -114,8 +114,8 @@ public class ChamChamChamTest {
         ChamChamCham game = new ChamChamCham();
         User user = new User("EdgeUser2");
 
-        // Scenario: User presses 'Q' right away.
-        String input = "Q";
+        // Scenario: User presses '0' right away.
+        String input = "0";
         Scanner scanner = createScanner(input);
 
         int score = game.startGame(user, scanner);
