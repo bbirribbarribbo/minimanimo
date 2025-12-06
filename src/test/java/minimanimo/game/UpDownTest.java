@@ -41,7 +41,7 @@ class UpDownTest {
     @Test
     void testMaxAttemptsCheck() {
         StringBuilder inputs = new StringBuilder();
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 15; i++) {
             inputs.append(i).append("\n");
         }
 
