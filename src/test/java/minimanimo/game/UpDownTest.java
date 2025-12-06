@@ -20,11 +20,10 @@ class UpDownTest {
     }
 
     @Test
-    void testInvalidInputAndGameOver() {
+    void testInvalidInput() { // Test handling of invalid inputs
         String input = "abc\n" +
                 "def\n" +
                 " \n" +
-                "0\n" +
                 "101\n" +
                 "-50\n" +
                 "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n";
@@ -72,5 +71,18 @@ class UpDownTest {
 
         assertDoesNotThrow(() -> game.startGame(user, scanner));
 
+    }
+
+    void testGameExitOption() { // Test game exit option
+        String input = "50\n0\n";
+
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        Scanner scanner = new Scanner(in);
+        User user = new User("TestUser");
+        UpDown game = new UpDown();
+
+        int score = game.startGame(user, scanner);
+
+        assertEquals(0, score);
     }
 }
