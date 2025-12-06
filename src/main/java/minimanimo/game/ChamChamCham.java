@@ -22,7 +22,7 @@ public class ChamChamCham implements MiniGame {
         System.out.println("==========================================");
         System.out.println("       Welcome to Cham-Cham-Cham!         ");
         System.out.println("==========================================");
-        System.out.println("Rule: If you look in the SAME direction as the computer, you WIN!");
+        System.out.println("Rule: If you look in the DIFFERENT direction as the computer, you WIN!");
         System.out.println("Tip: You can press '0' at any time to quit and save your score.");
 
         int score = 0;
@@ -68,13 +68,13 @@ public class ChamChamCham implements MiniGame {
 
             // Determine win/loss
             if (input.equals(computerDir)) {
-                System.out.println(" MATCH! You won this round!");
-                score++;
-                System.out.println("Current Winstreak: " + score);
-            } else {
                 System.out.println(" NO MATCH... You lost.");
                 System.out.println("Game Over! Your Final Score: " + score);
                 break;
+            } else {
+                System.out.println(" MATCH! You won this round!");
+                score++;
+                System.out.println("Current Winsteak: " + score);
             }
         }
         
