@@ -22,7 +22,7 @@ public class ChamChamCham implements MiniGame {
         System.out.println("==========================================");
         System.out.println("       Welcome to Cham-Cham-Cham!         ");
         System.out.println("==========================================");
-        System.out.println("Rule: If you look in the DIFFERENT direction as the computer, you WIN!");
+        System.out.println("Rule: If you look in the DIFFERENT direction from the computer, you WIN!");
         System.out.println("Tip: You can press '0' at any time to quit and save your score.");
 
         int score = 0;
@@ -38,7 +38,7 @@ public class ChamChamCham implements MiniGame {
 
             // Handle empty inputS
             if (input.isEmpty()) {
-                System.out.println("You only typed enter. Please choose L, C, R, or 0.");
+                System.out.println("Input cannot be empty. Please choose L, C, R, or 0.");
                 continue; 
             }
 
