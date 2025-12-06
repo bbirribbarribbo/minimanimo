@@ -34,7 +34,13 @@ public class ChamChamCham implements MiniGame {
             // Quit option added
             System.out.print("Select Direction (L: Left / C: Center / R: Right) or 'Q' to Quit: ");
             
-            String input = scanner.next().toUpperCase();
+            String input = scanner.nextLine().trim().toUpperCase();
+
+            // Handle empty inputS
+            if (input.isEmpty()) {
+                System.out.println("You only typed enter. Please choose L, C, R, or Q.");
+                continue; 
+            }
 
             // Quit condition
             if (input.equals("Q")) {
