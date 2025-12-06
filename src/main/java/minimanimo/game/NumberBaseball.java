@@ -49,9 +49,14 @@ public class NumberBaseball implements MiniGame {
         int life = MAX_LIFE;
 
         while (life > 0) {
-            System.out.printf("[Life: %d] Enter 3 digits: ", life);
+            System.out.printf("[Life: %d] Enter 3 digits (or '0' to quit): ", life);
             
             String input = scanner.nextLine(); 
+
+            if ("0".equals(input)) {
+                System.out.println("🛑 Game stopped by user.");
+                return 0; // Return 0 on user quit
+            }
 
             // 1. Validate Input (Internal implementation)
             if (!isValidInput(input)) {
@@ -68,7 +73,7 @@ public class NumberBaseball implements MiniGame {
                 System.out.println(" Correct! You won in " + attempts + " attempts!");
                 System.out.println("Secret Numbers: " + secretNumbers);
                 // Return Final Score
-                return MAX_LIFE - attempts; 
+                return MAX_LIFE - attempts + 1; 
             } else {
                 displayResult(strikes, balls);
                 life--; // Deduct life on failure
