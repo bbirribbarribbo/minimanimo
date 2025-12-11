@@ -135,12 +135,12 @@ Our team ensures project stability through a professional collaboration workflow
 
 
 - **Team Roadmap**:  
-  The project MVP consists of 7 issues and detailed role assignments and the full roadmap can be found in Sections 4 & 6 of CONTRIBUTING.md.
+  The project MVP consists of 11 issues and detailed role assignments and the full roadmap can be found in Sections 4 & 6 of CONTRIBUTING.md.
 
 
 - **Kanban Board**:  
   We use GitHub Projects (Kanban board) to track all issues.  
-  Each task moves through the workflow: **To Do → In Progress → Review → Done**.
+  Each task moves through the workflow: **Ready → In Progress → In Review → Done**.
 
 
 ---
@@ -163,8 +163,8 @@ Our team ensures project stability through a professional collaboration workflow
 | Responsibility      | Name           | Email                  |
 |----------------------------|----------------|------------------------|
 | Interface Design (`MiniGame`), `Number Baseball` Logic. | Kim Gyeongyoon | gracekim6531@naver.com |
-| `UserManager` (CSV I/O), Unit Tests, `Number UpDown`. | Choi Juyoung | hahalove79@naver.com |
-| `User` Class, Ranking Logic, `Cham Cham Cham`, Kanban & CI Mgmt. | Kwon Sihyeon | sihyun050305@gmail.com |
+| `UserManager` (CSV I/O), `Number UpDown`. | Choi Juyoung | hahalove79@naver.com |
+| `User` Class, `Cham Cham Cham`, Kanban & CI Mgmt. | Kwon Sihyeon | sihyun050305@gmail.com |
 | `GameLauncher` (Menu/Login), `Rock Paper Scissors` | Park Soyeon | amypark310@gmail.com |
 
 
