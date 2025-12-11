@@ -111,10 +111,10 @@ Here is who is doing what.
 
 | Name | Assigned Issues | Responsibilities |
 |:---:|:---:|:---|
-| **Kim Gyeongyoon** | **Issue #1, #8, [FEAT]** | Interface Design (`MiniGame`), `Number Baseball` Logic. |
-| **Choi Juyoung** | **Issue #2, #3, #2-1, [FEAT]** | `UserManager` (CSV I/O), Unit Tests, `Number UpDown`. |
-| **Kwon Sihyeon** | **Issue #4, #5, [REFACTOR]** | `User` Class, Ranking Logic, `Cham Cham Cham`, Kanban & CI Mgmt. |
-| **Park Soyeon** | **Issue #6, #7** | `GameLauncher` (Menu/Login), `Rock Paper Scissors` |
+| **Kim Gyeongyoon** | **Issue #1, #8, [FEAT]** | `MiniGame`, `Number Baseball` Logic, Enhanced Console UI. |
+| **Choi Juyoung** | **Issue #2, #3, #2-1, [FEAT]** | `UserManager`, `Number UpDown`, Enhanced Console UI. |
+| **Kwon Sihyeon** | **Issue #4, #5, [REFACTOR]** | `User`,`Cham Cham Cham`, Kanban management, Code Cleanup & Organization. |
+| **Park Soyeon** | **Issue #6, #7** | Make empty folders and files, `GameLauncher` (Menu/Login), `Rock Paper Scissors`. |
 
 ---
 
