@@ -111,10 +111,10 @@ Here is who is doing what.
 
 | Name | Assigned Issues | Responsibilities |
 |:---:|:---:|:---|
-| **Kim Gyeongyoon** | **Issue #1** | Interface Design (`MiniGame`), `Number Baseball` Logic. |
-| **Choi Juyoung** | **Issue #2, #3** | `UserManager` (CSV I/O), Unit Tests, `Number UpDown`. |
-| **Kwon Sihyeon** | **Issue #4, #5** | `User` Class, Ranking Logic, `Cham Cham Cham`, Kanban & CI Mgmt. |
-| **Park Soyeon** | **Issue #6, #7** | `GameLauncher` (Menu/Login), `Rock Paper Scissors` |
+| **Kim Gyeongyoon** | **Issue #1, #8, [FEAT]** | `MiniGame`, `Number Baseball` Logic, Enhanced Console UI. |
+| **Choi Juyoung** | **Issue #2, #3, #2-1, [FEAT]** | `UserManager`, `Number UpDown`, Enhanced Console UI. |
+| **Kwon Sihyeon** | **Issue #4, #5, [REFACTOR]** | `User`,`Cham Cham Cham`, Kanban management, Code Cleanup & Organization. |
+| **Park Soyeon** | **Issue #6, #7** | Make empty folders and files, `GameLauncher` (Menu/Login), `Rock Paper Scissors`. |
 
 ---
 
@@ -156,6 +156,12 @@ This is our plan for the MVP. Please find your name below, create the correspond
 * **Issue #1**: Implement Number Baseball Game Logic
     * **Description**: Implement logic for generating random numbers and calculating strikes/balls.
     * **Branch**: `feature/game-baseball`
+* **Issue #8**: Implement MiniGame Interface Setup
+    * **Description**: Initialize core architecture by creating MiniGame interface and defining essential contracts (startGame, getGameName).
+    * **Branch**: `feature/arch-interface`
+* **[FEAT]**: Implement Enhanced Console UI (Collab with Juyoung)
+    * **Description**: Visual enhancements (headers, layout) and screen management implementation.
+    * **Branch**: `feature/game-ui-polish2`
 
 ### Choi Juyoung
 * **Issue #2**: Implement UserManager & Unit Tests
@@ -164,6 +170,12 @@ This is our plan for the MVP. Please find your name below, create the correspond
 * **Issue #3**: Implement UpDown Game Logic
     * **Description**: Implement UpDown game logic (1-100) and test integration with UserManager.
     * **Branch**: `feature/game-updown`
+* **Issue #2-1**: Implement showTop5 in UserManager
+    * **Description**: Implement sorting logic to rank users by score and format console output.
+    * **Branch**: `feature/ranking-logic`
+* **[FEAT]**: Implement Enhanced Console UI (Collab with Gyeongyoon)
+    * **Description**: Visual enhancements (headers, layout) and screen management implementation.
+    * **Branch**: `feature/game-ui-polish`
 
 ### Kwon Sihyeon
 * **Issue #4**: Implement User Class & Ranking System
@@ -172,6 +184,9 @@ This is our plan for the MVP. Please find your name below, create the correspond
 * **Issue #5**: Implement ChamChamCham Game Logic
     * **Description**: Implement probability-based ChamChamCham game logic.
     * **Branch**: `feature/game-chamchamcham`
+* **[REFACTOR]**: Code Cleanup and Organization
+    * **Description**: Remove unused imports, apply consistent formatting, add comments, and remove dead code for final submission.
+    * **Branch**: `feature/code-cleanup`
 
 ### Park Soyeon
 * **Issue #6**: Implement GameLauncher (Menu & Login)
