@@ -95,8 +95,8 @@ java -jar target/minimanimo-1.0-SNAPSHOT.jar
 |--------------|-------|
 | MiniGame (Interface) | Defines the basic contract of game features and provides the required methods that each mini-game must implement. |
 | User (Class) | Stores the user's nickname and best score data for each game. |
-| UserManager | Handles CSV data management, nickname authentication, score updates, and ranking logic. |
-| GameLauncher | Entry point of the program; manages user menus and main game flow. |
+| UserManager (Class) | Handles CSV data management, nickname authentication, score updates, and ranking logic. |
+| GameLauncher (Class) | Entry point of the program; manages user menus and main game flow. |
 
 
 
